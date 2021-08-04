@@ -1,17 +1,12 @@
 import React from "react";
 import PostsGrid from "../../components/posts/posts-grid/posts-grid.component";
+import { useGetPosts } from "../../hooks/posts/useGetPosts";
 
-const dummyPost = [
-  {
-    id: "1",
-    title: "Post one",
-    body: "Body of post",
-  },
-];
 const Home: React.FC = () => {
+  const posts = useGetPosts();
   return (
     <div className="home">
-      <PostsGrid posts={dummyPost} />
+      <PostsGrid posts={posts || []} />
     </div>
   );
 };
